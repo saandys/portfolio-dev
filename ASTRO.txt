@@ -1,0 +1,4 @@
+Para instalar tecnologías se pone en terminal:
+- npx astro add --list -> para verlas todas
+- npx astro add *nombreDependencia* -> para instalarla
+ Ej: npx astro add tailwind

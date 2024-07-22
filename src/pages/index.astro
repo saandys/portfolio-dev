@@ -1,11 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Badge from '../components/Badge.astro';
+import LinkedIn from '../icons/LinkedIn.astro';
+import GitHub from '../icons/GitHub.astro';
+import SocialPill from '../icons/SocialPill.astro';
+import Mail from '../icons/Mail.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import { ACTION_ERROR_CODES } from 'astro:actions';
+import Briefcase from '../icons/Briefcase.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Sandra Montero. Ingeniera Informática especializada en IA."
+		description="">
 	<main>
-		
+		<SectionContainer class="py-44 pb-20">
+			<img class="rounded-full w-12 h-12 mb-4" 
+				src="https://content.cuerpomente.com/medio/2022/07/13/flores-simbolismo-espiritualidad_09ff3f15_1200x1200.jpg"
+				alt="sandra photo" />
+			<h1 class="text-white text-5xl font-bold flex flex-row
+				gap-x-4 pb-10">
+				Hola! Soy sandra 
+				<a
+					href="https://www.linkedin.com/in/sandramonterosanz/"
+					target="_blank"
+					rel="noopener"
+					class="flex justify-center items-center">
+						<div class="flex justify-center items-center">
+							<Badge>Disponible</Badge>
+						</div>
+				</a>
+			</h1>
+
+			<h2 class="text-2xl opacity-80 text-wrap">
+				<span class="text-purple-600">Ingeniera Informática</span> <span class="opacity-80">especializada en la</span>
+				<span class="font-bold"> IA</span>.
+				<span class="text-red-100/90"> De Alicante, España. </span>
+			</h2>
+
+			<nav class="flex gap-x-4 mt-8">
+				<SocialPill href="https://www.linkedin.com/in/sandramonterosanz/">
+						<LinkedIn class="size-6" />
+						LinkedIn
+				</SocialPill>
+				<SocialPill href="https://github.com/saandys">
+					<GitHub class="size-6" />
+					GitHub
+				</SocialPill>
+				<SocialPill href="https://github.com/saandys">
+					<Mail class="size-6" />
+					sandramonterosanz@gmail.com
+				</SocialPill>
+			
+			</nav>
+
+		</SectionContainer>
+		<SectionContainer id="experiencia">
+			<h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
+				<Briefcase class="size-6"/>
+					Experiencia Laboral</h2>
+			<Experience />
+		</SectionContainer>
 	</main>
 </Layout>
 

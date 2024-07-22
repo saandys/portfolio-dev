@@ -2,3 +2,10 @@ Para instalar tecnologías se pone en terminal:
 - npx astro add --list -> para verlas todas
 - npx astro add *nombreDependencia* -> para instalarla
  Ej: npx astro add tailwind
+
+Para instalar una fuente podemos irnos a FontSource, 
+elegir la que queramos 
+y en la parte derecha -> Install nos pondrá el comando
+que suele ser:
+- npm install @fontsource-variable/nombreFuente*
+    

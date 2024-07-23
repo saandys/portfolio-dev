@@ -1,0 +1,55 @@
+---
+
+import GitHub from '../icons/GitHub.astro';
+import LinkedIn from '../icons/LinkedIn.astro';
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        class: "bg-black text-white",
+        icon: GitHub
+    },
+    HTML: {
+        name: "HTML.js",
+        class: "text-[#73bcf6] bg-white",
+        icon: LinkedIn
+    }
+}
+const PROJECTS = [
+    {
+        title: "Software Developer",
+        description: "Footwear management application development with the TALL stack. Front end and back end development.",
+        link :"",
+        github: "",
+        image: 'https://imgs.search.brave.com/YZM1JTSF74G2NwhnqELXr7wRkLALfHI2jDfQ-bO_1v0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy80/LzRjL01hbnVsaW51/eC5wbmc',
+        tags: [TAGS.NEXT, TAGS.HTML]
+    }
+]
+---
+
+           
+{
+    PROJECTS.map(({image, title, description, tags}) => (
+        <article>
+            <h3 class="text-2xl font-semibold">{title}</h3>
+            <p class="text-lg text-pretty mb-4">{description}</p>
+            <ul class="flex gap-x-4 flex-row">
+               { tags.map((tag) => (
+                    <li>
+                         <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                            <tag.icon class="size-4"/>
+                            {tag.name}
+                        </span>
+                       
+                    </li>
+                )) }
+            </ul>
+            <img
+                class="rounded shadow-2xl shadow-white/10 mb-4 mt-4" 
+                src={image} alt={'Captura de pantalla del proyecto ${image}'}/>
+        </article>
+    )
+    )
+}
+    
+
+

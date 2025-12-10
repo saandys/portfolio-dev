@@ -1,8 +1,80 @@
-<header class="sticky flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto"> 
+{/*<header class="sticky flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto"> 
     <nav class="flex text-sm flex-row gap-x-10 opacity-80 boder bg-pink-100/20 dark:text-gray-400 py-3 px-6 rounded-full">
         <a class=" hover:scale-110 hover:text-pink-500" href="#top">Home</a>
         <a class=" hover:scale-110 hover:text-pink-500" href="#experience">Experience</a>
         <a class=" hover:scale-110 hover:text-pink-500" href="#about-me">About me</a>
         <a class=" hover:scale-110 hover:text-pink-500" href="#projects">Projects</a>
     </nav>
-</header>
+</header>*/}
+<header id="header" class="sticky top-0 z-50 w-full">
+    <div class="flex md:justify-center justify-end items-center px-4 py-5 xl:w-[1120px] mx-auto">
+  
+      <!-- NAV DESKTOP -->
+      <nav class="hidden md:flex text-sm flex-row gap-x-10 opacity-80 bg-pink-100/20 dark:text-gray-400 py-3 px-6 rounded-full">
+        <a class="hover:scale-110 hover:text-pink-500 transition" href="#top">Home</a>
+        <a class="hover:scale-110 hover:text-pink-500 transition" href="#experience">Experience</a>
+        <a class="hover:scale-110 hover:text-pink-500 transition" href="#about-me">About me</a>
+        <a class="hover:scale-110 hover:text-pink-500 transition" href="#projects">Projects</a>
+      </nav>
+  
+      <!-- BOTÓN HAMBURGUESA -->
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+  
+    </div>
+  
+    <!-- MENÚ MÓVIL -->
+    <div id="mobile-menu"
+         class="md:hidden hidden flex flex-col items-center gap-6 bg-pink-700/90 dark:bg-zinc-900 py-8 ">
+      <a href="#top" class="mobile-link">Home</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#about-me" class="mobile-link">About me</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+    </div>
+  </header>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const header = document.getElementById("header");
+  
+    if (!btn || !menu || !header) return;
+  
+    const links = menu.querySelectorAll("a");
+  
+    const toggleMenu = () => {
+      const isHidden = menu.classList.contains("hidden");
+      menu.classList.toggle("hidden");
+  
+      // Cambiar fondo del header
+      if (isHidden) {
+        header.classList.add("bg-pink-700");
+      } else {
+        header.classList.remove("bg-pink-700");
+      }
+    };
+  
+    btn.addEventListener("click", toggleMenu);
+  
+    // Cerrar al hacer click en un link
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        header.classList.remove("bg-pink-700");
+      });
+    });
+  
+    // Cerrar al hacer click fuera
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.add("hidden");
+        header.classList.remove("bg-pink-700");
+      }
+    });
+  });
+  </script>
+  

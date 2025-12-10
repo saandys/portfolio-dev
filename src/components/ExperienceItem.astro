@@ -1,23 +1,42 @@
 ---
+
+export interface Tag {
+    name: string;
+    class: string;
+    icon: any;
+}
 export interface Props{
     title: string 
     description: string 
     link: string
     date: string
+    tags: Tag[]
 }
-const {title, description, link, date} = Astro.props
+const {title, description, link, date, tags} = Astro.props
 ---
 
-<div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+<div class="absolute w-3 h-3 bg-pink-500 rounded-full mt-1.5 -start-1.5 border border-pink-500 dark:border-gray-900 dark:bg-gray-700"></div>
 <time 
     class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
     >{date}</time>
 <h3     
-    class="text-lg font-semibold text-gray-200 mt-4 dark:text-white"
+    class="text-lg font-semibold text-pink-500 mt-4 dark:text-pink-500"
     >{title}</h3>
 <p 
     class="mb-4 text-base font-normal text-gray-200 text-pretty dark:text-gray-400"
     >{description}</p>
+    <ul class="flex gap-x-4 flex-row flex-wrap w-full gap-y-3">
+        { tags.map((tag) => (
+             <li>
+                  <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                     <tag.icon class="size-4"/>
+                     {tag.name}
+                 </span>
+                
+             </li>
+         )) }
+     </ul>
+
     {
         link && (
             <a href={link} 

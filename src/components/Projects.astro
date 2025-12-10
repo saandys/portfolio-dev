@@ -1,38 +1,37 @@
 ---
+import Button from "../icons/Button.astro"
+import GitHub from "../icons/GitHub.astro"
+import Link from "../icons/Link.astro"
+import { TAGS } from "./Tags.astro"
 
-import GitHub from '../icons/GitHub.astro';
-import LinkedIn from '../icons/LinkedIn.astro';
-const TAGS = {
-    NEXT: {
-        name: "Next.js",
-        class: "bg-black text-white",
-        icon: GitHub
-    },
-    HTML: {
-        name: "HTML.js",
-        class: "text-[#73bcf6] bg-white",
-        icon: LinkedIn
-    }
-}
+
 const PROJECTS = [
     {
-        title: "Software Developer",
-        description: "Footwear management application development with the TALL stack. Front end and back end development.",
+        title: "Landing page for a footwear store",
+        description: "Built a website that allows the footwear store to showcase its services, highlight featured projects, and display pricing, helping attract new customers and strengthen its online presence.",
+        link :"https://zapateriamontero.es/",
+        github: "https://github.com/saandys/montero-landing.git",
+        image: '/images/landing_zapateria.png',
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.TYPESCRIPT]
+    },
+    {
+        title: "Sports Club API",
+        description: "The project develops a REST API with Laravel for a CMS to manage a sports club, following Domain-Driven Design (DDD) principles. It handles users, permissions, members, sports, courts, and reservations. The API allows performing CRUD operations on users, sports, courts, members, and reservations, as well as searching for available courts and listing reservations by date, applying the business logic for schedules and reservation limits. The application uses MySQL as the database and includes documentation in Swagger.",
         link :"",
-        github: "",
-        image: 'https://imgs.search.brave.com/YZM1JTSF74G2NwhnqELXr7wRkLALfHI2jDfQ-bO_1v0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy80/LzRjL01hbnVsaW51/eC5wbmc',
-        tags: [TAGS.NEXT, TAGS.HTML]
+        github: "https://github.com/saandys/clubDeportivoAPI.git",
+        image: '',
+        tags: [TAGS.LARAVEL, TAGS.PHP, TAGS.GITHUB, TAGS.SWAGGER]
     }
 ]
 ---
 
            
 {
-    PROJECTS.map(({image, title, description, tags}) => (
-        <article>
-            <h3 class="text-2xl font-semibold">{title}</h3>
+    PROJECTS.map(({image, title, description, tags, github, link}) => (
+        <article class="pb-12 group">
+            <h3 class="text-2xl font-semibold text-pink-500">{title}</h3>
             <p class="text-lg text-pretty mb-4">{description}</p>
-            <ul class="flex gap-x-4 flex-row">
+            <ul class="flex gap-x-4 flex-row flex-wrap gap-y-3">
                { tags.map((tag) => (
                     <li>
                          <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
@@ -43,9 +42,26 @@ const PROJECTS = [
                     </li>
                 )) }
             </ul>
-            <img
-                class="rounded shadow-2xl shadow-white/10 mb-4 mt-4" 
-                src={image} alt={'Captura de pantalla del proyecto ${image}'}/>
+            {image && <img
+                class="rounded shadow-2xl shadow-white/10 mb-4 mt-4 transition-transform duration-300 group-hover:scale-95" 
+                src={image} alt={'Captura de pantalla del proyecto ${image}'}/>}
+            <div class="flex items-end justify-end space-x-4 mt-4">
+                {github && <div  class="w-auto flex">
+                    <Button href={github}>
+                        <GitHub class="size-6"/>
+                        Code
+                    </Button> 
+                </div>}
+                {link && <div  class="w-auto flex">
+                    <Button href={link}>
+                        <Link class="size-6"/>
+                        Preview
+                    </Button> 
+                </div>}
+           
+            </div>
+         
+            
         </article>
     )
     )

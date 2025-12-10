@@ -1,18 +1,30 @@
 ---
+import Laravel from "../icons/Laravel.astro"
+import Tailwind from "../icons/Tailwind.astro"
 import ExperienceItem from "./ExperienceItem.astro"
+import Tags, { TAGS } from "./Tags.astro"
 
 const EXPERIENCE = [
     {
-        date: "September 2023 - Currently",
+        date: "February 2023 - December 2025",
+        title: "Web Developer - Nitsnets",
+        description: "Full Stack development combining Shopify on the frontend and Laravel on the backend for complex projects. Designed and customized Shopify themes using Liquid, Tailwind CSS, and Vanilla JS, dynamically connecting with the backend. Managed the Shopify CMS and developed internal apps and admin panels. Built Shopify Functions and Extensions with Polaris and Remix, integrating with the Shopify Admin API (GraphQL), backed by official Shopify certification.",
+        link :"",
+        tags: [TAGS.TAILWIND, TAGS.SHOPIFY, TAGS.GITHUB, TAGS.HTML, TAGS.JAVASCRIPT, TAGS.TYPESCRIPT, TAGS.REMIX, TAGS.LARAVEL, TAGS.POLARIS, TAGS.GRAPHQL, TAGS.LIQUID, TAGS.MYSQL]
+    },
+    {
+        date: "September 2023 - January 2025",
         title: "Software Developer - Servitux",
-        description: "Footwear management application development with the TALL stack. Front end and back end development.",
-        link :""
+        description: "I developed an internal web application for managing a footwear company using the TALL stack: Tailwind CSS, Alpine.js, Laravel, and Livewire. Implemented a B2B platform for managing orders and supplier relationships. Integrated Power BI reports into the application for real-time data analysis and reporting. Used PHP, MySQL, Git, and Composer, applying Domain-Driven Design (DDD) principles and managing the project with Jira.",
+        link :"",
+        tags: [TAGS.TAILWIND, TAGS.LARAVEL, TAGS.HTML, TAGS.JAVASCRIPT, TAGS.MYSQL, TAGS.LIVEWIRE, TAGS.ALPINE, TAGS.GITHUB ]
     },
     {
         date: "February 2023 - April 2023",
         title: "Web Developer - Fenix Academy",
         description: "Website development with academy and online store in CMS Wordpress, including instructors, students, courses, etc.",
-        link :""
+        link :"",
+        tags: [TAGS.WORDPRESS]
     }
 ]
 ---
@@ -20,7 +32,7 @@ const EXPERIENCE = [
 <ol class="relative border-s border-gray-200 ml-3 dark:border-gray-700">                  
     {
         EXPERIENCE.map(experience => (
-            <li class="mb-10 ms-4">
+            <li class="mb-10 ms-4 ">
                 <ExperienceItem {... experience} />
             </li>
         )

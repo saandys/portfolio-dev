@@ -40,8 +40,10 @@ const { description, title } = Astro.props;
 	}
 	body::before {
 		content: '';
-		position: fixed;
+		position: absolute;
 		inset: 0;
+		width: 100%;
+  		height: 100%; /* ahora cubrirá todo el body */
 		z-index: -1;
 		background-color: #000;
 		background-image:

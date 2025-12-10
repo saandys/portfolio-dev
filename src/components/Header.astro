@@ -70,10 +70,15 @@
   
     // Cerrar al hacer click fuera
     document.addEventListener("click", (e) => {
-      if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.add("hidden");
-        header.classList.remove("bg-pink-700");
-      }
+        const target = e.target;
+        if (
+            target instanceof Node &&
+            !menu.contains(target) &&
+            !btn.contains(target)
+        ) {
+            menu.classList.add("hidden");
+            header.classList.remove("bg-pink-700");
+        }
     });
   });
   </script>

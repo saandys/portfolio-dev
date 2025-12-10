@@ -1,18 +1,21 @@
 ---
 
+import { isNewExpression } from 'typescript';
 import GitHub from '../icons/GitHub.astro';
 import LinkedIn from '../icons/LinkedIn.astro';
 import Tailwind from '../icons/Tailwind.astro';
 
+const initData = 2023;
+const currentYear = new Date().getFullYear();
+const yearsAgo = (currentYear - initData);
 ---
-
            
 {
         <article class="pb-12">
            <div class="flex flex-col md:flex-row gap-x-4 justify-between items-center space-x-4">
        
             <div>
-                <p class="text-md text-pretty mb-4">My name is <strong class="text-pink-500">Sandra Montero</strong>, and since creating my first websites on Blogspot at 13, I knew programming would be part of my life. With 2.5 years of experience as a <strong class="text-pink-500">Full Stack Developer</strong>, I specialize in backend with Laravel while also enjoying frontend development and learning new technologies.</p>
+                <p class="text-md text-pretty mb-4">My name is <strong class="text-pink-500">Sandra Montero</strong>, and since creating my first websites on Blogspot at 13, I knew programming would be part of my life. With {yearsAgo} years of experience as a <strong class="text-pink-500">Full Stack Developer</strong>, I specialize in backend with Laravel while also enjoying frontend development and learning new technologies.</p>
                 <p class="text-md text-pretty mb-4">I’ve worked on <strong class="text-pink-500">e-commerce platforms, company projects, and personal apps</strong>. I enjoy facing challenges and trying new solutions.</p>
                 <p class="text-md text-pretty mb-4">I’m seeking a full-time role as a Full Stack, Backend, or Frontend Developer where I can grow professionally, contribute value to the team, and take on new challenges. I’m committed, motivated, and <strong class="text-pink-500">ready to give my best to become a top-level developer.</strong></p>
             </div>
